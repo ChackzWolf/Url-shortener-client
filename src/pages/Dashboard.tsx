@@ -9,10 +9,14 @@ const Dashboard: React.FC = () => {
   const [urls, setUrls] = useState<UrlModel[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+
+
   const fetchUrls = async () => {
     try {
       setLoading(true);
       const response = await api.get('/url/my-urls');
+    
+      const reversedList = response.data
       setUrls(response.data);
     } catch (error) {
       toast.error('Failed to fetch your URLs');
