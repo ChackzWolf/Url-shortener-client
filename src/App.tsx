@@ -8,6 +8,9 @@ import NotFound from './pages/NotFound';
 import Header from './components/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CgProfile } from "react-icons/cg";
+import RedirectHandler from './components/RedirectHandler';
+
 
 const App: React.FC = () => {
   const { isAuthenticated, loading } = useAuth();
@@ -27,6 +30,7 @@ const App: React.FC = () => {
         <main className="flex-grow container mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
+            <Route path="/url/:code" element={<RedirectHandler />} />
             <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
             <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
@@ -35,11 +39,8 @@ const App: React.FC = () => {
         </main>
         <footer className="py-4 text-center bg-white shadow-inner text-gray-600 ">
           <div className='flex justify-center gap-2'>
-            <p>This web was created by </p>
-            <h1 className="font-bold">Jackson Cheriyan Kollareth</h1>
-          </div>
-          <div className='flex justify-center gap-2'>
-            <h1 >+91 9074280247 </h1> <h1 className='font-bold'>|</h1>  <h1> jacksoncheriyan05@gmail.com</h1> 
+            
+            <a className="transition-all duration-150 font-bold cursor-pointer text-2xl text-blue-500 hover:text-white hover:bg-blue-500 flex gap-2 border rounded-xl p-2 justify-between items-center-safe" href="https://jackson-portfolio-theta.vercel.app"> <p className='text-sm'> Visit My Portfolio </p> <CgProfile  /> </a>
           </div>
 
         </footer>
