@@ -11,8 +11,8 @@ const RedirectHandler: React.FC = () => {
       try {
         const res = await api.get(`/url/${code}`);
         console.log(res, 'response')
-        // const originalUrl = res.data.originalUrl;
-        // window.location.href = originalUrl;
+        const originalUrl = res.data.url;
+        window.location.href = originalUrl;
       } catch (err) {
         console.error(err);
         // navigate('/notfound'); 
