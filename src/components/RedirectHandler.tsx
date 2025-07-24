@@ -10,11 +10,12 @@ const RedirectHandler: React.FC = () => {
     const redirect = async () => {
       try {
         const res = await api.get(`/url/${code}`);
+        console.log(res, 'response')
         const originalUrl = res.data.originalUrl;
         window.location.href = originalUrl;
       } catch (err) {
         console.error(err);
-        navigate('/notfound'); 
+        // navigate('/notfound'); 
       }
     };
 
