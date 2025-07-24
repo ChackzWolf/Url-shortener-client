@@ -16,8 +16,8 @@ const Dashboard: React.FC = () => {
       setLoading(true);
       const response = await api.get('/url/my-urls');
     
-      // const reversedList = response.data
-      setUrls(response.data);
+      const reversedList = response.data.reverse((a:any,b:any)=> a-b)
+      setUrls(reversedList);
     } catch (error) {
       toast.error('Failed to fetch your URLs');
       console.error(error);
