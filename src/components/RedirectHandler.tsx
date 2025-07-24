@@ -15,7 +15,7 @@ const RedirectHandler: React.FC = () => {
         window.location.href = originalUrl;
       } catch (err) {
         console.error(err);
-        // navigate('/notfound'); 
+        navigate('/notfound'); 
       }
     };
 
